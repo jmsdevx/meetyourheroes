@@ -1,0 +1,1 @@
+SELECT * FROM mytable WHERE id=$1
