@@ -16,7 +16,8 @@ class Search extends Component {
             spotlight: '',
             savefirst: '',
             savelast: '',
-            stop: true
+            stop: true,
+            infobutton: false
         }
         this.getNext = this.getNext.bind(this)
         this.getBack = this.getBack.bind(this)
@@ -44,7 +45,7 @@ class Search extends Component {
         .then(response=>{ 
             let filtered = response.data.author.filter((e, i, a)=>e.hasOwnProperty("spotlight") ? e : null)
             
-           this.setState({info: filtered, savefirst: this.state.bothfirst, savelast: this.state.bothlast, bothfirst: '', bothlast: ''}, )
+           this.setState({info: filtered, savefirst: this.state.bothfirst, savelast: this.state.bothlast, bothfirst: '', bothlast: '', infobutton: true}, )
            
         })
         .catch(error => console.log(error))
@@ -103,12 +104,6 @@ class Search extends Component {
         else{this.setState({startcounter: 100})
         alert("No more that way!")}}
 
-        displayInfo(author){
-            console.log(author)
-           
-
-        }
-
     
 
     render(){
@@ -120,7 +115,8 @@ class Search extends Component {
             alert("Sorry, can't find that author!")}
 
         else {results = this.state.info.map((e, i) =>{
-                return <p id="names" key={i}>{e.authordisplay}<Link to={{pathname:`/author/${e.authorid}`, state: {info: e}}}>Info</Link> </p>
+                return <p id="names" key={i}>{e.authordisplay}<Link to={{pathname:`/author/${e.authorid}`, state: {info: e}}}>
+                Info</Link> </p>
             })
         }
         

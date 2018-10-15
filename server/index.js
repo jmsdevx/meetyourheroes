@@ -3,7 +3,8 @@ const express = require('express')
 const {json} = require('body-parser')
 const cors = require('cors')
 const massive = require('massive')
-
+const {addFavorite} = require('./controller')
+const {getFavorites} = require('./controller')
 
 const port = 3001
 const app = express()
@@ -20,6 +21,9 @@ massive( process.env.CONNECTION_STRING).then(dbInstance => {
     //     }).catch(error => console.log(error))
 
 }).catch(error=>console.log(error));
+
+app.post('/api/favorites', addFavorite)
+app.get('/api/favorites', getFavorites)
 
 
 

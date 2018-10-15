@@ -1,1 +1,1 @@
-SELECT * FROM mytable;
+SELECT * FROM authors;

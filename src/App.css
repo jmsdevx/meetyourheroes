@@ -13,7 +13,13 @@ body {
 }
 
 a {
-  color: whitesmoke
+  color: whitesmoke;
+  transition: 0.3s;
+  margin: 1vw;
+}
+
+a:hover{
+  color: lightskyblue;
 }
 
 .fullpage {
@@ -72,13 +78,11 @@ a {
   margin: 1vw;
   height: 10vh;
   width: 20vw;
-  transition: .3s;
+  text-align: center;
+  text-decoration: underline;
 }
 
-#names:hover{
-  color: lightskyblue;
 
-}
 
 .paginate{
   display: flex;
@@ -102,5 +106,18 @@ a {
   #infoback {
     width: 20vw;
     align-self: center;
+  }
+
+  button {
+    border-radius: 5%;
+    background-color: black;
+    color: whitesmoke;
+    opacity: .8;
+    transition: .2s;
+  }
+
+  button:hover {
+    opacity: 1;
+
   }
 
